@@ -8,7 +8,7 @@ function Login() {
     const [logoUrl, setLogoUrl] = useState('https://cdn.lineupx.com/images/logo/Icon-Fill-Black.png');
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
-    const [vercel, setVercel] = useState(`https://vercel-og-nextjs-theta.vercel.app/api/dynamic-image?logourl=${logoUrl}&title=${"hello world"}&desc=${"2-3,4-5,mumbai-pune"}`)
+    const [vercel, setVercel] = useState(`https://vercel-og-nextjs-theta.vercel.app/api/dynamic-image?logourl=https://cdn.lineupx.com/images/logo/Icon-Fill-Black.png&title=helloworld&desc=2-3,4-5,mumbai-pune`)
     const signIn = () => {
         auth.signInWithPopup(provider).catch(alert);
     }
@@ -16,9 +16,9 @@ function Login() {
         <Container>
             <Head>
                 <title>
-                    Login Page
+                    Login Page hello
                 </title>
-                <meta name="description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" />
+                {/* <meta name="description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" /> */}
                 <meta name="theme-color" content="#008f68" />
                 <meta property="og:url" content="https://lineupx.com" />
                 <meta property="og:title" content="Lineupx" />
