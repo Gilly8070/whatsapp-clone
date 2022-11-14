@@ -24,7 +24,7 @@ function Login() {
                 <meta property="og:title" content="Lineupx" />
                 <meta property="og:type" key="og:type" content="website" />
                 <meta property="og:description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" />
-                <meta property="og:image" content={"https://vercel-og-nextjs-theta.vercel.app/api/dynamic-image?logourl=https://cdn.lineupx.com/images/logo/Icon-Fill-Black.png&title=helloworld&desc=2-3,4-5,mumbai-pune"} />
+                <meta property="og:image" content={"https://vercel-og-nextjs-theta.vercel.app/api/dynamic-image?logourl=https://cdn.lineupx.com/images/logo/Icon-Fill-Black.png&title=helloworld&desc=2-3,4-5,mumbai-pune"} key="ogimage" />
             </Head>
             <Container>
                 <LoginContainer>
