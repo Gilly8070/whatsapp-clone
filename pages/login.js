@@ -18,13 +18,14 @@ function Login() {
                 <title>
                     Login Page helloworld
                 </title>
-                <meta name="description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" />
+                {/* <meta name="description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" /> */}
                 <meta name="theme-color" content="#008f68" />
-                <meta property="og:url" content="https://lineupx.com" />
-                <meta property="og:title" content="Lineupx" />
-                <meta property="og:type" key="og:type" content="website" />
-                <meta property="og:description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" />
-                <meta property="og:image" content={"https://vercel-og-nextjs-theta.vercel.app/api/dynamic-image?logourl=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbeLjSzrw7sjmGjAIoq_6F0oKgkrbTLGGaD6rnTcDytg&s&title=helloworld&desc=2-3,4-5,mumbai-pune"} key="ogimage" />
+                <meta name='url' property="og:url" content="https://lineupx.com" />
+                <meta name='title' property="og:title" content="Lineupx" />
+                <meta name='type' property="og:type" key="og:type" content="website" />
+                <meta name='desc' property="og:description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta name='image' property="og:image" content={"https://vercel-og-nextjs-theta.vercel.app/api/dynamic-image?logourl=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbeLjSzrw7sjmGjAIoq_6F0oKgkrbTLGGaD6rnTcDytg&s&title=helloworld&desc=2-3,4-5,mumbai-pune"} key="ogimage" />
             </Head>
             <Container>
                 <LoginContainer>
