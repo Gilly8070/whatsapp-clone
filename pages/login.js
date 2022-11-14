@@ -8,7 +8,7 @@ function Login() {
     const [logoUrl, setLogoUrl] = useState('https://cdn.lineupx.com/images/logo/Icon-Fill-Black.png');
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
-    const [vercel, setVercel] = useState(`https://vercel-og-nextjs-theta.vercel.app/api/dynamic-image?logourl=https://cdn.lineupx.com/images/logo/Icon-Fill-Black.png&title=helloworld&desc=2-3,4-5,mumbai-pune`)
+    const [vercel, setVercel] = useState(`https://vercel-og-nextjs-theta.vercel.app/api/dynamic-image?logourl=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbeLjSzrw7sjmGjAIoq_6F0oKgkrbTLGGaD6rnTcDytg&s&title=helloworld&desc=2-3,4-5,mumbai-pune`)
     const signIn = () => {
         auth.signInWithPopup(provider).catch(alert);
     }
