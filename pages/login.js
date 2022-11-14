@@ -1,10 +1,14 @@
 import { Button } from '@material-ui/core';
 import Head from 'next/head';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { auth, provider } from '../firebase';
 
 function Login() {
-
+    const [logoUrl, setLogoUrl] = useState('https://cdn.lineupx.com/images/logo/Icon-Fill-Black.png');
+    const [title, setTitle] = useState('');
+    const [desc, setDesc] = useState('');
+    const [vercel, setVercel] = useState(`https://vercel-og-nextjs-theta.vercel.app/api/dynamic-image?logourl=${logoUrl}&title=${"hello world"}&desc=${"2-3,4-5,mumbai-pune"}`)
     const signIn = () => {
         auth.signInWithPopup(provider).catch(alert);
     }
@@ -12,14 +16,16 @@ function Login() {
         <Container>
             <Head>
                 <title>
-                    Login
+                    Login Page
                 </title>
+                <meta property="og:image" content={vercel} />
+
             </Head>
             <LoginContainer>
                 <Logo
                     src='http://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png'
                 />
-            <Button onClick={signIn} variant='outlined'>Sign in with Google</Button>
+            <Button onClick={signIn} variant='outlined'>Sign in with Google Now</Button>
             </LoginContainer>
         </Container>
     )
