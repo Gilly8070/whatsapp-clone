@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { auth, provider } from '../firebase';
 
-function Login() {
+const Login = () => {
     const [logoUrl, setLogoUrl] = useState('https://cdn.lineupx.com/images/logo/Icon-Fill-Black.png');
     const [title, setTitle] = useState('');
     const [desc, setDesc] = useState('');
@@ -15,10 +15,8 @@ function Login() {
     return (
         <div>
             <Head>
-                <title>
-                    Login Page react
-                </title>
-                {/* <meta name="description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" /> */}
+                <title>Login Page react2</title>
+                <meta name="description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" />
                 <meta name="theme-color" content="#008f68" />
                 <meta name='url' property="og:url" content="https://lineupx.com" />
                 <meta name='title' property="og:title" content="Lineupx" />
