@@ -16,7 +16,7 @@ function Login() {
         <div>
             <Head>
                 <title>
-                    Login Page helloworld
+                    Login Page react
                 </title>
                 {/* <meta name="description" content="LineupX | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" /> */}
                 <meta name="theme-color" content="#008f68" />
