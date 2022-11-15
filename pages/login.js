@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { auth, provider } from '../firebase';
-
+import Image from 'next/image'
 const Login = () => {
     const [logoUrl, setLogoUrl] = useState('https://cdn.lineupx.com/images/logo/Icon-Fill-Black.png');
     const [title, setTitle] = useState('');
@@ -27,7 +27,10 @@ const Login = () => {
         </Head>
             <Container>
                 <LoginContainer>
-                    <Logo
+                    <Image
+        width="200"
+        height='200'
+        
                         src='http://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png'
                     />
                     <Button onClick={signIn} variant='outlined'>Sign in with Google Now3333</Button>
