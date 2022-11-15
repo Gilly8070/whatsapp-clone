@@ -16,8 +16,6 @@ const Login = () => {
         <div>
             <Head>
                 <title>Login Page222</title>
-                <meta name="description" content="LineupX nowoowowow | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" key='desc' />
-                <meta name="theme-color" content="#008f68" />
                 <meta property="og:url" content="https://lineupx.com" />
                 <meta property="og:title" content="Lineupx now" />
                 <meta property="og:type" key="type" content="website" />
