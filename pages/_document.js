@@ -19,7 +19,7 @@ export default class CustomDocument extends Document {
             content="lorem lipsum whatsapp " />
           <meta property="og:url" content="https://legendary-gnome-12ddb6.netlify.app" />
           <meta property="og:image"
-            content="https://www.seekpng.com/png/small/343-3434867_warrner-bros-logo-featured-warner-bros-logo-png.png" />
+            content="https://s3.ap-south-1.amazonaws.com/cdn.lineupx.com/images/logo/Icon-Fill-Blue.png" />
 
           <meta name="twitter:card" content="summary" />
           <meta property="fb:app_id" content="your_app_id" />
