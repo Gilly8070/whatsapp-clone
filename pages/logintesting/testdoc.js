@@ -37,3 +37,13 @@
 //     )
 //   }
 // }
+
+import React from 'react'
+
+const testdoc = () => {
+  return (
+    <div>testdoc</div>
+  )
+}
+
+export default testdoc
