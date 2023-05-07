@@ -24,7 +24,15 @@ function MyApp({ Component, pageProps }) {
   if (loading) return <Loading />;
   if (!user) return <Login />;
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <title>LineupX - Changing the way the world hires talent</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 export default MyApp
