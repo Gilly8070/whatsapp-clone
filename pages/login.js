@@ -14,20 +14,20 @@ const Login = () => {
     }
     return (
         <div>
-            <Head>
+            {/* <Head>
                 <title>Login Page222</title>
                 <meta property="og:url" content="https://lineupx.com" />
                 <meta property="og:title" content="Lineupx now" />
                 <meta property="og:type" key="type" content="website" />
                 <meta property="og:description" content="LineupX nowoowowow | 4609 followers on LinkedIn. On a mission to make recruitment easy for everybody | Lineupx is a recruitment platform that enables companies to hire" />
                 <meta property="og:image" content="http://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png" />
-        </Head>
+        </Head> */}
             <Container>
                 <LoginContainer>
                     <Image
-        width="200"
-        height='200'
-        
+                        width="200"
+                        height='200'
+
                         src='http://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png'
                     />
                     <Button onClick={signIn} variant='outlined'>Sign in with Google Now3333</Button>
