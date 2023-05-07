@@ -4,6 +4,7 @@ import Login from './login';
 import Loading from '../components/Loading';
 import firebase from 'firebase';
 import { useEffect } from 'react';
+import Head from 'next/head';
 
 
 function MyApp({ Component, pageProps }) {
