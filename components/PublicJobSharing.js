@@ -4,7 +4,7 @@ import React from 'react'
 const PublicJobSharing = ({ jobTitle2, desc3, array }) => {
     return (
         <div>
-            <Head key='publicShareJobDescription'>
+            <Head>
                 <title>Lineupx Application recruiter job detail</title>
                 <meta name="description" content={`Hi! We have an opportunity for ${jobTitle2} | Exp: ${array[0] + ' yrs'} | Job Type: ${array[2]} | Job Location: ${array[1]}`} />
                 <meta name="theme-color" content="#008f68" />
