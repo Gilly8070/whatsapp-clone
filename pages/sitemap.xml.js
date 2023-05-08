@@ -16,11 +16,11 @@ export const getServerSideProps = async ({ res, req }) => {
             :
             hostname?.replace(`.localhost:5004`, "");
 
-    // const BASE_DIR = process.env.NODE_ENV === "production" ? "./" : "pages";
+    const BASE_DIR = process.env.NODE_ENV === "production" ? "./" : "pages";
 
     const staticPaths =
         fs
-            .readdirSync('pages')
+            .readdirSync(BASE_DIR)
             .filter((staticPage) => {
                 return ![
                     "api",
