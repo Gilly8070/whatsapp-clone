@@ -16,7 +16,7 @@ export const getServerSideProps = async ({ res, req }) => {
             :
             hostname?.replace(`.localhost:5004`, "");
 
-    const BASE_DIR = process.env.NODE_ENV === "production" ? "./" : "pages";
+    const BASE_DIR = process.env.NODE_ENV === "production" ? "../pages" : "pages";
 
     const staticPaths =
         fs
