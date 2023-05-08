@@ -1,5 +1,8 @@
-import * as fs from "fs";
+// import * as fs from "fs";
 // import http from '../services/httpService'
+
+import { globby } from 'globby';
+import prettier from 'prettier';
 const Sitemap = () => {
     return null;
 };
@@ -16,27 +19,27 @@ export const getServerSideProps = async ({ res, req }) => {
             :
             hostname?.replace(`.localhost:5004`, "");
 
-    const BASE_DIR = process.env.NODE_ENV === "production" ? "../pages" : "pages";
+    // const BASE_DIR = process.env.NODE_ENV === "production" ? "../pages" : "pages";
 
-    const staticPaths =
-        fs
-            .readdirSync(BASE_DIR)
-            .filter((staticPage) => {
-                return ![
-                    "api",
-                    "product",
-                    "_app.js",
-                    "_app.jsx",
-                    "_document.js",
-                    "404.js",
-                    "sitemap.xml.js",
-                    "_sites",
-                    "index.js",
-                ].includes(staticPage);
-            })
-            .map((staticPagePath) => {
-                return `${BASE_URL}/${staticPagePath}`;
-            })
+    // const staticPaths =
+    //     fs
+    //         .readdirSync(BASE_DIR)
+    //         .filter((staticPage) => {
+    //             return ![
+    //                 "api",
+    //                 "product",
+    //                 "_app.js",
+    //                 "_app.jsx",
+    //                 "_document.js",
+    //                 "404.js",
+    //                 "sitemap.xml.js",
+    //                 "_sites",
+    //                 "index.js",
+    //             ].includes(staticPage);
+    //         })
+    //         .map((staticPagePath) => {
+    //             return `${BASE_URL}/${staticPagePath}`;
+    //         })
     // :
     // fs
     //     .readdirSync(`${BASE_DIR}/_sites/[site]`)
@@ -59,6 +62,33 @@ export const getServerSideProps = async ({ res, req }) => {
     //         return `${hostname}/${staticPagePath}`;
     //     })
 
+    const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
+    const pages = await globby([
+        'pages/*.js',
+        'pages/**/*.js',
+        '!pages/**/_',
+        '!pages/_',
+        '!pages/_sites',
+        '!pages/[',
+        'data/**/*.mdx',
+        '!data/*.mdx',
+        '!pages/_*.js',
+        '!pages/api',
+        '!pages/404.js',
+    ]);
+
+    const staticPages = pages
+        .map((page) => {
+            const path = page
+                .replace('pages', '')
+                .replace('data', '')
+                .replace('.js', '')
+                .replace('.mdx', '')
+                .replace('/index', '');
+            const route = path === '/index' ? '' : path;
+            return BASE_URL + route;
+        })
+
 
     // [`${hostname}/jobs`, `${hostname}/companies`, `${hostname}/blogs`, `${hostname}/pricing`]
 
@@ -76,7 +106,7 @@ export const getServerSideProps = async ({ res, req }) => {
     // [...jobsDynamic, ...companiesDynamic, ...blogsDynamic]
 
 
-    const allPaths = [...staticPaths, ...dynamic1];
+    const allPaths = [...staticPages, ...dynamic1];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
