@@ -1,11 +1,4 @@
-// import * as fs from "fs";
-// import http from '../services/httpService'
-import path from 'path';
-// import { promises as fs } from 'fs';
 import { getAllPages } from '../utils/test'; // Create a utility function to fetch all pages in your project
-
-// import { globby } from 'globby';
-// import prettier from 'prettier';
 const Sitemap = () => {
     return null;
 };
@@ -13,103 +6,43 @@ const Sitemap = () => {
 export const getServerSideProps = async ({ res, req }) => {
     const BASE_URL = process?.env?.NODE_ENV === 'development' ? 'http://localhost:5004' : 'https://test.lineupx.com';
 
-    // const jsonDirectory = path.join(process.cwd(), '/');
-    const hostname = req?.headers?.host; // http://gicenlineupxlineuply.localhost:5004
-
 
     const pages = await getAllPages();
 
-    // let updatePage = pages?.map(el => )
-
-    const currentHost =
-        process.env.NODE_ENV === "production"
-            ?
-            hostname?.replace(`.lineuply.com`, "") // PUT YOUR DOMAIN HERE
-            :
-            hostname?.replace(`.localhost:5004`, "");
-
-
+    let remove = [
+        "api",
+        "product",
+        "/_app.js",
+        "_app.jsx",
+        "_document.js",
+        "404.js",
+        "sitemap.xml.js",
+        "/_sites",
+        "/index.js",
+        "/",
+        "/["
+    ];
     const staticPaths =
         pages
-            .filter((staticPage) => {
-                return ![
-                    "api",
-                    "product",
-                    "_app.js",
-                    "_app.jsx",
-                    "_document.js",
-                    "404.js",
-                    "sitemap.xml.js",
-                    "_sites",
-                    "index.js",
-                ].includes(staticPage);
-            })
-            .map((staticPagePath) => {
-                return `${BASE_URL}${staticPagePath}`;
-            })
-    // :
+            .filter((staticPage) =>
+                !remove.includes(staticPage)
+            )
 
-    // const BASE_DIR = process.env.NODE_ENV === "production" ? jsonDirectory : jsonDirectory;
+    let removedStatic = staticPaths.filter((staticPage) => !staticPage.includes('.') && !staticPage.includes('/[') && !staticPage.includes('/_') && !staticPage.includes('/api') && !staticPage.includes('/index') && !staticPage.includes('.js') && !staticPage.includes('.jsx'))
 
-    // const staticPaths =
-    //     fs
-    //         .readdirSync(BASE_DIR)
-    //         .filter((staticPage) => {
-    //             return ![
-    //                 "api",
-    //                 "product",
-    //                 "_app.js",
-    //                 "_app.jsx",
-    //                 "_document.js",
-    //                 "404.js",
-    //                 "sitemap.xml.js",
-    //                 "_sites",
-    //                 "index.js",
-    //             ].includes(staticPage);
-    //         })
-    //         .map((staticPagePath) => {
-    //             return `${BASE_URL}/${staticPagePath}`;
-    //         })
-    // :
-    // fs
-    //     .readdirSync(`${BASE_DIR}/_sites/[site]`)
-    //     .filter((staticPage) => {
-    //         return ![
-    //             "api",
-    //             "product",
-    //             "_app.js",
-    //             "_app.jsx",
-    //             "_document.js",
-    //             "404.js",
-    //             "sitemap.xml.js",
-    //             "job",
-    //             "detail",
-    //             "index.js",
-    //             "blog",
-    //         ].includes(staticPage);
-    //     })
-    //     .map((staticPagePath) => {
-    //         return `${hostname}/${staticPagePath}`;
-    //     })
+    let static2 =
+        removedStatic.map((staticPagePath) => {
+            return `${BASE_URL}${staticPagePath}`;
+        })
 
-
-    // [`${hostname}/jobs`, `${hostname}/companies`, `${hostname}/blogs`, `${hostname}/pricing`]
-
-
-
-    console.log('console.log', 'res', 'from local 2222', hostname, currentHost, process.env.NODE_ENV);
+    console.log(staticPaths, 'console.log', 'pages');
 
 
     let dynamic1 = [`${BASE_URL}/product/1`, `${BASE_URL}/product/2`];
 
 
-    // const dynamicPaths = 
 
-
-    // [...jobsDynamic, ...companiesDynamic, ...blogsDynamic]
-
-
-    const allPaths = [...staticPaths, ...dynamic1];
+    const allPaths = [...static2, ...dynamic1];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
