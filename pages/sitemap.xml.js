@@ -1,4 +1,4 @@
-import { getAllPages } from '../utils/test'; // Create a utility function to fetch all pages in your project
+import { getAllPages } from '../utils/test';
 const Sitemap = () => {
     return null;
 };
